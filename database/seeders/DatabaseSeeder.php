@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use function App\Helpers\create_default_user_teacher_team;
+use function App\Helpers\create_default_user_student_team;
+use function App\Helpers\create_default_teacher_video;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,11 +15,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        echo "Creating teacher user and team...\n";
+        create_default_user_teacher_team();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        echo "Creating student user and team...\n";
+        create_default_user_student_team();
+
+        echo "Creating teacher video video...\n";
+        create_default_teacher_video();
     }
 }

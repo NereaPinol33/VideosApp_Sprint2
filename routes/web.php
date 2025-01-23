@@ -25,4 +25,5 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/video/{id}', 'App\Http\Controllers\VideosController@show')->name('videos.show');
 });

@@ -14,8 +14,8 @@ if (!function_exists('create_default_user_teacher_team')) {
         }
 
         $user = new User();
-        $user->name = env('DEFAULT_TEACHER_NAME');
-        $user->email = env('DEFAULT_TEACHER_EMAIL');
+        $user->name = env('DEFAULT_TEACHER_NAME', 'Teacher');
+        $user->email = env('DEFAULT_TEACHER_EMAIL', 'a@gmail.com');
         $user->password = bcrypt(env('DEFAULT_TEACHER_PASSWORD'));
         $user->save();
 

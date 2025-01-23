@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
 use Tests\TestCase;
 use App\Models\User;
@@ -9,6 +9,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use function App\Helpers\create_default_user_teacher_team;
 use function App\Helpers\create_default_user_student_team;
+use function App\Helpers\create_default_teacher_video;
 
 class HelpersTest extends TestCase
 {
@@ -50,5 +51,15 @@ class HelpersTest extends TestCase
 
         $team = Team::where('name', 'Student')->first();
         $this->assertEquals($team->id, $user->currentTeam->id);
+    }
+
+    public function test_create_default_teacher_video()
+    {
+        create_default_teacher_video();
+        $this->assertDatabaseHas('videos', [
+            'title' => env('DEFAULT_TEACHER_VIDEO_TITLE'),
+            'description' => env('DEFAULT_TEACHER_VIDEO_DESCRIPTION'),
+            'url' => env('DEFAULT_TEACHER_VIDEO_URL'),
+        ]);
     }
 }
