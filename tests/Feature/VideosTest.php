@@ -2,10 +2,10 @@
 
 namespace Tests\Feature;
 
-use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\User;
 use App\Models\Video;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
 
 class VideosTest extends TestCase
 {
@@ -18,8 +18,13 @@ class VideosTest extends TestCase
             'email' => 'test@iesebre.com',
             'password' => bcrypt('password'),
         ]);
-        
-        echo $user->name;
+
+        $team = $user->ownedTeams()->create([
+            'name' => 'Teachers',
+            'personal_team' => false,
+        ]);
+
+        $user->switchTeam($team);
 
         $this->actingAs($user);
 
@@ -33,7 +38,7 @@ class VideosTest extends TestCase
         $response = $this->get(route('videos.show', ['id' => $video->id]));
 
         $response->assertStatus(200);
-        $response->assertViewIs('videos.show');
+        $response->assertViewIs('video.show');
         $response->assertViewHas('video', $video);
     }
 

@@ -2,14 +2,15 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
-use App\Models\User;
 use App\Models\Team;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
-use function App\Helpers\create_default_user_teacher_team;
-use function App\Helpers\create_default_user_student_team;
+use Tests\TestCase;
+
 use function App\Helpers\create_default_teacher_video;
+use function App\Helpers\create_default_user_student_team;
+use function App\Helpers\create_default_user_teacher_team;
 
 class HelpersTest extends TestCase
 {
