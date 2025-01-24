@@ -1,11 +1,8 @@
 <?php
 
-namespace App\Helpers;
-
 use App\Models\Team;
 use App\Models\User;
 
-/* Create new default user to teachers team */
 if (! function_exists('create_default_user_teacher_team')) {
     function create_default_user_teacher_team()
     {
@@ -26,11 +23,9 @@ if (! function_exists('create_default_user_teacher_team')) {
         $team->save();
 
         $user->switchTeam($team);
-
     }
 }
 
-/* Create new default user to students team */
 if (! function_exists('create_default_user_student_team')) {
     function create_default_user_student_team()
     {
