@@ -1,7 +1,5 @@
 <?php
 
-namespace App\Helpers;
-
 use App\Models\Video;
 
 if (! function_exists('create_default_teacher_video')) {
