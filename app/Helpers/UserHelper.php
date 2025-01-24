@@ -4,6 +4,11 @@ use App\Models\Team;
 use App\Models\User;
 
 if (! function_exists('create_default_user_teacher_team')) {
+    /**
+     * Create a default teacher user and team if they don't exist.
+     *
+     * @return void
+     */
     function create_default_user_teacher_team()
     {
         if (User::where('email', env('DEFAULT_TEACHER_EMAIL'))->exists()) {
@@ -27,6 +32,11 @@ if (! function_exists('create_default_user_teacher_team')) {
 }
 
 if (! function_exists('create_default_user_student_team')) {
+    /**
+     * Create a default student user and team if they don't exist.
+     *
+     * @return void
+     */
     function create_default_user_student_team()
     {
         if (User::where('email', env('DEFAULT_STUDENT_EMAIL'))->exists()) {

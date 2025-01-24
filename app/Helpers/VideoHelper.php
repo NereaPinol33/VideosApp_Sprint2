@@ -3,6 +3,11 @@
 use App\Models\Video;
 
 if (! function_exists('create_default_teacher_video')) {
+    /**
+     * Create a default teacher video if it doesn't exist.
+     *
+     * @return void
+     */
     function create_default_teacher_video()
     {
         if (Video::where('title', env('DEFAULT_TEACHER_VIDEO_TITLE'))->exists()) {
