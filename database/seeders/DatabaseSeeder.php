@@ -5,10 +5,6 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-use function App\Helpers\create_default_teacher_video;
-use function App\Helpers\create_default_user_student_team;
-use function App\Helpers\create_default_user_teacher_team;
-
 class DatabaseSeeder extends Seeder
 {
     /**
